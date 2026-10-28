@@ -1,6 +1,6 @@
 import express from "express";
 import pg from "pg";
-import Joi from "joi";
+import Joi, { forbidden } from "joi";
 
 const app = express();
 const port = 3000;
@@ -32,3 +32,12 @@ app.use((req,res,next) => {
     })
     next()
 })
+
+function successResponse(res, message, data, status = 200){
+    return res.status(status).json({
+        success: true,
+        message,
+        data,
+        error: null
+    })
+}
