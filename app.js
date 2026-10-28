@@ -164,3 +164,20 @@ app.delete("/biodata/:id",validateParams(idSchema) ,async (req,res)=>{
         res,'Data Berhasil dihapus', result.rows[0] , 201
     )
 })
+
+app.use((req,res) =>{
+    return errorResponse(
+        res,"Endpoint not found",404
+    )
+})
+
+app.use((err,req,res, next) =>{
+    console.error(err)
+    if(res.headersSent){
+        return next(err)
+    }
+
+    return errorResponse(
+        res,"Internal Server Error",500
+    )
+})
