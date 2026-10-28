@@ -1,4 +1,4 @@
-PUST
+PUT
 <img width="1920" height="1200" alt="PUT" src="https://github.com/user-attachments/assets/9f2d8dae-5d76-4c7b-b436-fc7db2442a56" />
 POST
 <img width="1920" height="1200" alt="POST" src="https://github.com/user-attachments/assets/0ddd84d5-6496-4eb5-ba0f-4c0edc9abfc6" />
