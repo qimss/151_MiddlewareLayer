@@ -147,3 +147,20 @@ app.put("/biodata/:id",
             res,'Data Berhasil diupdate', result.rows[0],201
         )
 })
+
+app.delete("/biodata/:id",validateParams(idSchema) ,async (req,res)=>{
+    const {id} = req.params
+    const result = pool.query(
+        'DELETE FROM biodata WHERE id=$1 RETURNING *',
+        [id]
+    )
+    if (result.rowCount === 0) {
+        return errorResponse(
+            res, 'Data not found', 404
+        )
+    }
+
+    return successResponse(
+        res,'Data Berhasil dihapus', result.rows[0] , 201
+    )
+})
